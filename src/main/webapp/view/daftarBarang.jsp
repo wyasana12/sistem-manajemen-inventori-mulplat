@@ -7,8 +7,13 @@
 <title>Daftar Barang</title>
 </head>
 <body>
-	<%@ page import="dao.*" %>
+	<%@ page import="dao.*"%>
+	<%
+	String usernameOrEmail = (String) session.getAttribute("id");
+	if(usernameOrEmail != null ) {
+	%>
 	<a href="./tambahBarang.jsp">Add Barang</a>
+	<%}%>
 	<table>
 		<tr>
 			<td>No</td>
@@ -18,7 +23,11 @@
 			<td>Harga</td>
 			<td>Tanggal Tambah</td>
 			<td>Tanggal Update</td>
+			<%
+			if(usernameOrEmail != null ) {
+			%>
 			<td>Aksi</td>
+			<%}%>
 		</tr>
 		<%
 		barangModel bM = new barangModel();
@@ -48,10 +57,15 @@
 			<td>
 				<% out.print(bM.getAllBarang().get(i).getUpdated_at()); %>
 			</td>
-			<td>
-				<a href="./editBarang.jsp?id=<%out.print(bM.getAllBarang().get(i).getId());%>">Edit Barang</a>
-				<a href="../exe/exeDeleteBarang.jsp?id=<%out.print(bM.getAllBarang().get(i).getId());%>">Hapus Barang</a>
-			</td>
+			<%
+			if(usernameOrEmail != null ) {
+			%>
+			<td><a
+				href="./editBarang.jsp?id=<%out.print(bM.getAllBarang().get(i).getId());%>">Edit
+					Barang</a> <a
+				href="../exe/exeDeleteBarang.jsp?id=<%out.print(bM.getAllBarang().get(i).getId());%>">Hapus
+					Barang</a></td>
+			<%}%>
 		</tr>
 		<%
 		}

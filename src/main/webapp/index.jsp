@@ -17,6 +17,12 @@
 	<% } else {%>
 	<p>Harap Login Terlebih Dahulu</p>
 	<a href="./view/login.jsp">Login</a>
+	<p>Belum Mempunyai Akun?</p>
+	<a href="./view/register.jsp">Register</a>
 	<% } %>
+	<h3>Side Bar</h3>
+	<a href="./view/daftarBarang.jsp">Barang</a>
+	<a href="./view/daftarSupplier.jsp">Supplier</a>
+	<a href="./view/daftarTransaksi.jsp">Transaksi</a>
 </body>
 </html>

@@ -10,7 +10,7 @@
 	<form action="../exe/exeTambahSupplier.jsp" method="POST">
 	Nama Supplier<input type="text" name="nama_supplier" required><br>
 	Kontak<input type="text" name="kontak" required><br>
-	<textarea name="alamat"></textarea><br>
+	Alamat<textarea name="alamat"></textarea><br>
 	<input type="submit" name="submit" value="simpan">
 	</form>
 </body>

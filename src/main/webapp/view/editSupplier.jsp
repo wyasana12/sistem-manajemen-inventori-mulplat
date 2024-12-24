@@ -28,7 +28,7 @@
 	<input type="hidden" name="id" value="<%= s.getId() %>">
 	Nama Supplier<input type="text" name="nama_supplier" value="<%= s.getNama_supplier() %>" required><br>
 	Kontak<input type="text" name="kontak" value="<%= s.getKontak() %>" required><br>
-	<textarea name="alamat"><%= s.getAlamat() %></textarea><br>
+	Alamat<textarea name="alamat"><%= s.getAlamat() %></textarea><br>
 	<input type="submit" name="submit" value="simpan">
 	</form>
 	<%

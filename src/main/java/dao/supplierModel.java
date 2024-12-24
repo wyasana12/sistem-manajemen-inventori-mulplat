@@ -69,6 +69,7 @@ public class supplierModel {
 			ps.setString(1, s.getNama_supplier());
 			ps.setString(2, s.getKontak());
 			ps.setString(3, s.getAlamat());
+			ps.setInt(4, s.getId());
 			int edit = ps.executeUpdate();
 			ps.close();
 			return edit > 0;
