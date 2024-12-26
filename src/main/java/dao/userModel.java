@@ -56,4 +56,27 @@ public class userModel {
 			return false;
 		}
 	}
+	
+	public Integer getUserIdByEmail(String usernameOrEmail) {
+		Integer id_user = null;
+		
+		String query = "SELECT id FROM users WHERE email = ? OR username = ?";
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, usernameOrEmail); // Set email atau username
+	        ps.setString(2, usernameOrEmail);
+	        
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				id_user = rs.getInt("id");
+			}
+			
+			rs.close();
+			ps.close();
+		} catch(SQLException err) {
+			err.printStackTrace();
+		}
+		
+		return id_user;
+	}
 }

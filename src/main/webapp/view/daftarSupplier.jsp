@@ -8,7 +8,14 @@
 </head>
 <body>
 	<%@ page import="dao.*"%>
+	<%
+	String usernameOrEmail = (String) session.getAttribute("id");
+	if (usernameOrEmail != null) {
+	%>
 	<a href="./tambahSupplier.jsp">Tambah Supplier</a>
+	<%
+	}
+	%>
 	<table>
 		<tr>
 			<td>No</td>
@@ -17,7 +24,13 @@
 			<td>Alamat</td>
 			<td>Tanggal Dibuat</td>
 			<td>Tanggal Diupdate</td>
+			<%
+			if (usernameOrEmail != null) {
+			%>
 			<td>Aksi</td>
+			<%
+			}
+			%>
 		</tr>
 		<%
 		supplierModel sM = new supplierModel();
@@ -57,8 +70,16 @@
 				%>
 			</td>
 			<td>
-			<a href="./editSupplier.jsp?id=<% out.print(sM.getAllSupplier().get(i).getId()); %>">Edit Supplier</a>
-			<a href="../exe/exeDeleteSupplier.jsp?id=<% out.print(sM.getAllSupplier().get(i).getId());%>">Hapus Supplier</a>
+				<%
+				if (usernameOrEmail != null) {
+				%> <a
+				href="./editSupplier.jsp?id=<%out.print(sM.getAllSupplier().get(i).getId());%>">Edit
+					Supplier</a> <a
+				href="../exe/exeDeleteSupplier.jsp?id=<%out.print(sM.getAllSupplier().get(i).getId());%>">Hapus
+					Supplier</a>
+				<%
+				}
+				%>
 			</td>
 		</tr>
 		<%

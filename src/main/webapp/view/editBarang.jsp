@@ -9,6 +9,7 @@
 <body>
 	<%@ page import="dao.*" %>
 	<%
+	String usernameOrEmail = (String) session.getAttribute("id");
 	int id = Integer.parseInt(request.getParameter("id"));
 	barangModel bM = new barangModel();
 	barang b = null;

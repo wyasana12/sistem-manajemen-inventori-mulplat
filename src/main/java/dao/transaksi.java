@@ -1,16 +1,16 @@
 package dao;
 
+import java.sql.Date;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 
 public class transaksi {
 	private int id;
 	private int id_barang;
 	private int id_user;
 	private int supplier_id;
-	private String jenis_transaksi;
+	private JenisTransaksi jenis_transaksi;
 	private int jumlah;
-	private LocalDate tanggal;
+	private Date tanggal;
 	private Timestamp created_at;
 	private Timestamp updated_at;
 	
@@ -48,11 +48,15 @@ public class transaksi {
 		this.supplier_id = supplier_id;
 	}
 	
-	public String getJenis_transaksi() {
+	public enum JenisTransaksi {
+		masuk, keluar;
+	}
+	
+	public JenisTransaksi getJenis_transaksi() {
 		return jenis_transaksi;
 	}
 	
-	public void setJenis_transaksi(String jenis_transaksi) {
+	public void setJenis_transaksi(JenisTransaksi jenis_transaksi) {
 		this.jenis_transaksi = jenis_transaksi;
 	}
 	
@@ -64,11 +68,11 @@ public class transaksi {
 		this.jumlah = jumlah;
 	}
 	
-	public LocalDate getTanggal() {
+	public Date getTanggal() {
 		return tanggal;
 	}
 	
-	public void setTanggal(LocalDate tanggal) {
+	public void setTanggal(Date tanggal) {
 		this.tanggal = tanggal;
 	}
 
